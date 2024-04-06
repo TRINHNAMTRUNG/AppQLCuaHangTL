@@ -308,7 +308,7 @@ public class DAO_SanPham {
 		PreparedStatement stmt = null;
 		boolean success = false;
 		try {
-			stmt = con.prepareStatement("DELETE FROM SanPham  WHERE maSanPham = ?");
+			stmt = con.prepareStatement("DELETE FROM GiaSanPham  WHERE maGiaSanPham = ?");
 			stmt.setString(1, sanPham.getMaSanPham());
 			int rowsAffected = stmt.executeUpdate();
 			if (rowsAffected > 0) {

@@ -39,7 +39,9 @@ import javax.swing.table.TableColumn;
 
 import bus.BUS_NhaCungCap;
 import bus.BUS_SanPham;
+import custom_Gui.CustomBtn;
 import custom_Gui.CustomTableHeaderRenderer;
+import custom_Gui.ImageScaler;
 import custom_Gui.RoundButton;
 import custom_Gui.copyImage;
 import entity.DonVi;
@@ -94,7 +96,7 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 	private RoundButton btnChonFile;
 	private RoundButton btnXoa;
 	private RoundButton btnSua;
-	private RoundButton btnThem;
+	private CustomBtn btnThem;
 	private JScrollPane scrollTableSanPham;
 	private DefaultTableModel modelTable;
 	private DefaultComboBoxModel<LoaiSanPham> modelComBoLoaiTimKiem;
@@ -122,6 +124,8 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 	private RoundButton btnLuu;
 	private RoundButton btnHuy;
 	private Object choosebtn;
+	
+	
 	public GUI_SanPham() {
 		setSize(913,625);
 		setLayout(null);
@@ -337,8 +341,10 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 		btnSua.setBackground(new Color(53,94,241));
 		btnSua.setFocusPainted(false);
 
-		btnThem = new RoundButton("Thêm", 5);
-		btnThem.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		btnThem = new CustomBtn("Thêm", null, 15, 0, 3f);
+		btnThem.setForeground(Color.decode("#ffffff"));
+		btnThem.setIcon(new ImageScaler("/icon/icon_add.png", 18, 18).getScaledImageIcon());
+		btnThem.setFont(new Font("Segoe UI Semibold", Font.BOLD, 14));
 		btnThem.setBounds(20, 268, 90, 31);
 		pThongTinSanPham.add(btnThem);
 		btnThem.setBackground(new Color(53, 94, 241));
@@ -628,7 +634,7 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 		}
 		try {
 			giaBan = pattern.parse(txtGiaBan.getText()).doubleValue();
-			giaVon = pattern.parse(txtGiaVon.getText()).doubleValue();
+			giaVon = pattern.parse(txtGiaVon.getText()).doubleValue(); 
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -866,4 +872,5 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 		timKiemMa();
 		System.out.println();
 	}
+	
 }
