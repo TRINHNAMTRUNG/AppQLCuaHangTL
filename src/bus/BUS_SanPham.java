@@ -17,6 +17,10 @@ public class BUS_SanPham {
 		System.out.println("checkkk");
 		return daoSanPham.getAllSanPham();
 	}
+	public SanPham getGiaSanPham(String maGia){
+		System.out.println("checkkk");
+		return daoSanPham.getGiaSanPham(maGia);
+	}
 	public boolean addSanPham(SanPham sanPham, boolean kiemTraTonTaiSanPham){
 		return daoSanPham.addSanPham(sanPham, kiemTraTonTaiSanPham);
 	}

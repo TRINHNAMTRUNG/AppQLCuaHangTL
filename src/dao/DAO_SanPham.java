@@ -39,6 +39,7 @@ public class DAO_SanPham {
 					+ "       LoaiSanPham.tenLoai, \r\n"
 					+ "       LoaiSanPham.maLoai, \r\n"
 					+ "       DonVi.tenDonVi, \r\n"
+					+ "       DonVi.maDonVi, \r\n"
 					+ "       GiaSanPham.soLuong, \r\n"
 					+ "       GiaSanPham.donGia, \r\n"
 					+ "       GiaSanPham.giaVon, \r\n"
@@ -63,6 +64,7 @@ public class DAO_SanPham {
 				loaiSanPham.setTenLoai(rs.getString("tenLoai"));
 				loaiSanPham.setMaLoai(rs.getString("maLoai"));
 				donVi.setTenDonVi(rs.getString("tenDonVi"));
+				donVi.setMaDonVi(rs.getString("maDonVi"));
 				giaSanPham.setSoLuong(rs.getInt("soLuong"));
 				giaSanPham.setDonGia(rs.getDouble("donGia"));
 				giaSanPham.setGiaVon(rs.getDouble("giaVon"));
@@ -217,6 +219,66 @@ public class DAO_SanPham {
 			close(rs, stmt);
 		}
 		return listSanPham;
+	}
+	public SanPham getGiaSanPham(String maGia){
+		SanPham sanPham = null;
+		Connection con = connectDBs.getConnConnection();
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			stmt = con.prepareStatement(""
+					+ "SELECT GiaSanPham.maSanPham, \r\n"
+					+ "       SanPham.tenSanPham, \r\n"
+					+ "	      GiaSanPham.anhSanPham,\r\n"
+					+ "	      GiaSanPham.trangThai,\r\n"
+					+ "       NhaCungCap.tenNhaCungCap, \r\n"
+					+ "       NhaCungCap.maNhaCungCap, \r\n"
+					+ "       LoaiSanPham.tenLoai, \r\n"
+					+ "       LoaiSanPham.maLoai, \r\n"
+					+ "       DonVi.tenDonVi, \r\n"
+					+ "       DonVi.maDonVi, \r\n"
+					+ "       GiaSanPham.soLuong, \r\n"
+					+ "       GiaSanPham.maGiaSanPham, \r\n"
+					+ "       GiaSanPham.donGia, \r\n"
+					+ "       GiaSanPham.giaVon \r\n"
+					+ "FROM GiaSanPham\r\n"
+					+ "JOIN DonVi ON GiaSanPham.maDonVi = DonVi.maDonVi\r\n"
+					+ "JOIN SanPham ON GiaSanPham.maSanPham = SanPham.maSanPham\r\n"
+					+ "JOIN LoaiSanPham ON SanPham.maLoaiSanPham = LoaiSanPham.maLoai\r\n"
+					+ "JOIN NhaCungCap ON SanPham.maNhaCungCap = NhaCungCap.maNhaCungCap WHERE GiaSanPham.maGiaSanPham = ?;");
+			stmt.setString(1, maGia);
+			rs = stmt.executeQuery();
+			while(rs.next()) {
+				GiaSanPham giaSanPham = new GiaSanPham();
+				DonVi donVi = new DonVi();
+				LoaiSanPham loaiSanPham = new LoaiSanPham();
+				NhaCungCap nhaCungCap = new NhaCungCap();
+
+				nhaCungCap.setTenNhaCungCap(rs.getString("tenNhaCungCap"));
+				nhaCungCap.setMaNhaCungCap(rs.getString("maNhaCungCap"));
+				loaiSanPham.setTenLoai(rs.getString("tenLoai"));
+				loaiSanPham.setMaLoai(rs.getString("maLoai"));
+				donVi.setTenDonVi(rs.getString("tenDonVi"));
+				donVi.setMaDonVi(rs.getString("maDonVi"));
+				giaSanPham.setSoLuong(rs.getInt("soLuong"));
+				giaSanPham.setDonGia(rs.getDouble("donGia"));
+				giaSanPham.setGiaVon(rs.getDouble("giaVon"));
+				giaSanPham.setMaGiaSanPham(rs.getString("maGiaSanPham"));
+				giaSanPham.setTrangThai(rs.getBoolean("trangThai"));
+				giaSanPham.setDonVi(donVi);
+
+				String maSanPham = rs.getString("maSanPham");
+				String tenSanPham = rs.getString("tenSanPham");
+				String anhSanPham = rs.getString("anhSanPham");
+				giaSanPham.setAnhSanPham(anhSanPham);
+				sanPham = new SanPham(maSanPham, tenSanPham, loaiSanPham, nhaCungCap, giaSanPham);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs, stmt);
+		}
+		return sanPham;
 	}
 	public boolean addSanPham(SanPham sanPham, boolean kiemTraTonTaiSanPham) {
 		Connection con = connectDBs.getConnConnection();

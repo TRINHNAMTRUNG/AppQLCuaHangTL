@@ -207,11 +207,6 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 		pTimKiem.add(lblVNDA);
 
 		txtMaSP = new JTextField();
-		txtMaSP.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyReleased(KeyEvent e) {
-			}
-		});
 		txtMaSP.setBounds(100, 44, 163, 23);
 		pTimKiem.add(txtMaSP);
 		txtMaSP.setColumns(10);
@@ -341,7 +336,7 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 		btnSua.setBackground(new Color(53,94,241));
 		btnSua.setFocusPainted(false);
 
-		btnThem = new CustomBtn("Thêm", null, 15, 0, 3f);
+		btnThem = new CustomBtn("Thêm", null, 15, 0, 1);
 		btnThem.setForeground(Color.decode("#ffffff"));
 		btnThem.setIcon(new ImageScaler("/icon/icon_add.png", 18, 18).getScaledImageIcon());
 		btnThem.setFont(new Font("Segoe UI Semibold", Font.BOLD, 14));
@@ -521,20 +516,6 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 			}
 		}
 	}
-	//	public void KhoaBangThongTin(boolean trangThai) {
-	//		txtGiaBan.setEditable(!trangThai);
-	//		txtGiaVon.setEditable(!trangThai);
-	//		txtMaVach.setEditable(!trangThai);
-	//		txtSoLuong.setEditable(!trangThai);
-	//		txtTenSP.setEditable(!trangThai);
-	//		comboLoai.setEnabled(!trangThai);
-	//		comboLoai.setForeground(Color.BLACK);
-	//		comboDonVi.setEnabled(!trangThai);
-	//		comboDonVi.setForeground(Color.BLACK);
-	//		comboNCC.setEnabled(!trangThai);
-	//		comboNCC.setForeground(Color.BLACK);
-	//		btnChonFile.setEnabled(!trangThai);
-	//	}
 	public void khoabtn(boolean trangThai) {
 		btnThem.setEnabled(!trangThai);
 		btnSua.setEnabled(!trangThai);
@@ -663,18 +644,18 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 		char[] arrMaSP = maSP.toCharArray();
 		String maGia = "";
 		Random random = new Random();
-		boolean isDuplicate; 
+//		boolean isDuplicate; 
 		for(int i = 7; i<=11; i++) {
 			maGia += arrMaSP[i];
 		}
 		maGia += maDonVi;
-		do {
-			String newMaGia = maGia.trim() + String.format("%03d", random.nextInt(1000));
-			isDuplicate = listSanPham.stream().anyMatch(p -> p.getMaSanPham().equals(newMaGia));
-			if (!isDuplicate) {
-				maGia = newMaGia;
-			}
-		} while (isDuplicate);
+//		do {
+//			String newMaGia = maGia.trim() + String.format("%03d", random.nextInt(1000));
+//			isDuplicate = listSanPham.stream().anyMatch(p -> p.getMaSanPham().equals(newMaGia));
+//			if (!isDuplicate) {
+//				maGia = newMaGia;
+//			}
+//		} while (isDuplicate);
 
 		return maGia.trim();
 	}

@@ -37,17 +37,17 @@ public class DonVi {
 		return Objects.hash(maDonVi);
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		DonVi other = (DonVi) obj;
-		return Objects.equals(maDonVi, other.maDonVi);
-	}
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (obj == null)
+//			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+//		DonVi other = (DonVi) obj;
+//		return Objects.equals(maDonVi, other.maDonVi);
+//	}
 
 	@Override
 	public String toString() {
