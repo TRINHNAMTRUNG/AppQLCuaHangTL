@@ -27,6 +27,9 @@ public class BUS_SanPham {
 	public boolean deleteSanPham(SanPham sanPham){
 		return daoSanPham.deleteSanPham(sanPham);
 	}
+	public boolean deleteSanPhamCuoi(SanPham sanPham){
+		return daoSanPham.deleteSanPhamCuoi(sanPham);
+	}
 	public boolean updateSanPham(SanPham sanPham){
 		return daoSanPham.updateSanPham(sanPham);
 	}
@@ -45,6 +48,9 @@ public class BUS_SanPham {
 	}
 	public boolean addDonVi(DonVi donVi){
 		return daoSanPham.addDonVi(donVi);
+	}
+	public boolean updateSoLuongSP(int sl, String magia){
+		return daoSanPham.updateSoLuongSP(sl, magia);
 	}
 	public boolean addLoaiSanPham(LoaiSanPham loaiSanPham){
 		return daoSanPham.addLoaiSanPham(loaiSanPham);

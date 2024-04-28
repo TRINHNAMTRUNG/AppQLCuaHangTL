@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import connectDB.connectDBs;
+import custom_Gui.ImageScaler;
 import custom_Gui.RoundedPanel;
 
 import javax.swing.JLabel;
@@ -71,25 +72,25 @@ public class App_Main extends JFrame implements MouseListener{
 		setResizable(false);
 		
 		pMain = new JPanel();
-		pMain.setBackground(new Color(0, 66, 67));
+		pMain.setBackground(new Color(59, 132, 52));
 		getContentPane().add(pMain);
 		pMain.setLayout(null);
 		
 		pRoot = new JPanel();
-		pRoot.setBackground(new Color(40, 121, 116));
+		pRoot.setBackground(new Color(42, 82, 39));
 		pRoot.setBounds(0, 0, 203, 647);
 		pMain.add(pRoot);
 		pRoot.setLayout(null);
 		
 		pLogo = new JPanel();
-		pLogo.setBackground(new Color(40, 121, 116));
+		pLogo.setBackground(new Color(42, 82, 39));
 		pLogo.setBounds(10, 11, 183, 153);
 		pRoot.add(pLogo);
 		pLogo.setLayout(null);
 		
 		lblLogo = new JLabel("");
 		lblLogo.setBounds(0, 0, 183, 126);
-		lblLogo.setIcon(new ImageIcon(App_Main.class.getResource("/image/cvb.png")));
+		lblLogo.setIcon(new ImageScaler("/image/gros.PNG", 183, 126).getScaledImageIcon());
 		pLogo.add(lblLogo);
 		
 		lblNameStore = new JLabel("Coconut Store");
@@ -99,13 +100,13 @@ public class App_Main extends JFrame implements MouseListener{
 		pLogo.add(lblNameStore);
 		
 		pMenu = new JPanel();
-		pMenu.setBackground(new Color(40, 121, 116));
+		pMenu.setBackground(new Color(42, 82, 39));
 		pMenu.setBounds(10, 163, 183, 473);
 		pRoot.add(pMenu);
 		pMenu.setLayout(null);
 		
 		pHome = new RoundedPanel(12);
-		pHome.setBackground(new Color(0, 66, 67));
+		pHome.setBackground(new Color(59, 132, 52));
 		pHome.setBounds(10, 21, 163, 38);
 		pMenu.add(pHome);
 		pHome.setLayout(null);
@@ -118,7 +119,7 @@ public class App_Main extends JFrame implements MouseListener{
 		pHome.add(lblHome);
 		
 		pNhaCungCap = new RoundedPanel(12);
-		pNhaCungCap.setBackground(new Color(0, 66, 67));
+		pNhaCungCap.setBackground(new Color(59, 132, 52));
 		pNhaCungCap.setBounds(10, 73, 163, 38);
 		pMenu.add(pNhaCungCap);
 		pNhaCungCap.setLayout(null);
@@ -131,7 +132,7 @@ public class App_Main extends JFrame implements MouseListener{
 		pNhaCungCap.add(lblNhaCungCap);
 		
 		pSanPham = new RoundedPanel(12);
-		pSanPham.setBackground(new Color(0, 66, 67));
+		pSanPham.setBackground(new Color(59, 132, 52));
 		pSanPham.setBounds(10, 129, 163, 38);
 		pMenu.add(pSanPham);
 		pSanPham.setLayout(null);
@@ -144,7 +145,7 @@ public class App_Main extends JFrame implements MouseListener{
 		pSanPham.add(lblSanPham);
 		
 		pNhanVien = new RoundedPanel(12);
-		pNhanVien.setBackground(new Color(0, 66, 67));
+		pNhanVien.setBackground(new Color(59, 132, 52));
 		pNhanVien.setBounds(10, 184, 163, 38);
 		pMenu.add(pNhanVien);
 		pNhanVien.setLayout(null);
@@ -157,7 +158,7 @@ public class App_Main extends JFrame implements MouseListener{
 		pNhanVien.add(lblNhanVien);
 		
 		pBaoCao = new RoundedPanel(12);
-		pBaoCao.setBackground(new Color(0, 66, 67));
+		pBaoCao.setBackground(new Color(59, 132, 52));
 		pBaoCao.setBounds(10, 241, 163, 38);
 		pMenu.add(pBaoCao);
 		pBaoCao.setLayout(null);
@@ -170,7 +171,7 @@ public class App_Main extends JFrame implements MouseListener{
 		pBaoCao.add(lblBaoCao);
 		
 		pDangXuat = new RoundedPanel(12);
-		pDangXuat.setBackground(new Color(0, 66, 67));
+		pDangXuat.setBackground(new Color(59, 132, 52));
 		pDangXuat.setBounds(10, 428, 163, 38);
 		pMenu.add(pDangXuat);
 		pDangXuat.setLayout(null);
@@ -183,7 +184,7 @@ public class App_Main extends JFrame implements MouseListener{
 		pDangXuat.add(lblDangXuat);
 		
 		pKhuyenMai = new RoundedPanel(12);
-		pKhuyenMai.setBackground(new Color(0, 66, 67));
+		pKhuyenMai.setBackground(new Color(59, 132, 52));
 		pKhuyenMai.setBounds(10, 296, 163, 38);
 		pMenu.add(pKhuyenMai);
 		pKhuyenMai.setLayout(null);
@@ -197,7 +198,7 @@ public class App_Main extends JFrame implements MouseListener{
 		
 		pBanHang = new RoundedPanel(12);
 		pBanHang.setLayout(null);
-		pBanHang.setBackground(new Color(0, 66, 67));
+		pBanHang.setBackground(new Color(59, 132, 52));
 		pBanHang.setBounds(10, 355, 163, 38);
 		pMenu.add(pBanHang);
 		
@@ -216,6 +217,7 @@ public class App_Main extends JFrame implements MouseListener{
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(App_Main.class.getResource("/image/ff.jpg")));
 		pViewControl.add(lblNewLabel_1, BorderLayout.CENTER);
+	
 		
 		pBanHang.addMouseListener(this);
 		pBaoCao.addMouseListener(this);
@@ -236,9 +238,6 @@ public class App_Main extends JFrame implements MouseListener{
 				}
 			}
         });
-//		EventQueue.invokeLater(new Runnable() {
-//			
-//		});
 	}
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -288,7 +287,7 @@ public class App_Main extends JFrame implements MouseListener{
 	}
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		hoverColor = new Color(1,0,1);
+		hoverColor = new Color(123,174,94);
 		
 		Object obj =  e.getSource();
 		JPanel sourcePanel = (JPanel) obj;
@@ -297,7 +296,7 @@ public class App_Main extends JFrame implements MouseListener{
 	}
 	@Override
 	public void mouseExited(MouseEvent e) {
-		defaultColor = new Color(0, 66, 67);
+		defaultColor = new Color(59, 132, 52);
 		Object obj =  e.getSource();
 		JPanel sourcePanel = (JPanel) obj;
 		sourcePanel.setBackground(defaultColor);

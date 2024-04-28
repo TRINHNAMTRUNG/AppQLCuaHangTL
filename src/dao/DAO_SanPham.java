@@ -371,6 +371,25 @@ public class DAO_SanPham {
 		boolean success = false;
 		try {
 			stmt = con.prepareStatement("DELETE FROM GiaSanPham  WHERE maGiaSanPham = ?");
+			stmt.setString(1, sanPham.getGiaSanPham().getMaGiaSanPham());
+			int rowsAffected = stmt.executeUpdate();
+			if (rowsAffected > 0) {
+				success = true; // Nếu có hàng bị ảnh hưởng, gán true
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			close(null, stmt);
+		}
+		return success;
+	}
+	public boolean deleteSanPhamCuoi(SanPham sanPham) {
+		Connection con = connectDBs.getConnConnection();
+		PreparedStatement stmt = null;
+		boolean success = false;
+		try {
+			stmt = con.prepareStatement("DELETE FROM SanPham  WHERE maSanPham = ?");
 			stmt.setString(1, sanPham.getMaSanPham());
 			int rowsAffected = stmt.executeUpdate();
 			if (rowsAffected > 0) {
@@ -384,12 +403,31 @@ public class DAO_SanPham {
 		}
 		return success;
 	}
+	public boolean updateSoLuongSP(int sl, String magia) {
+		Connection con = connectDBs.getConnConnection();
+		PreparedStatement stmt = null;
+		boolean success = false;
+		try {
+			stmt = con.prepareStatement("UPDATE GiaSanPham SET soLuong = soLuong - ? WHERE maGiaSanPham = ?");
+			stmt.setInt(1, sl);
+			stmt.setString(2, magia);
+			int rowsAffected = stmt.executeUpdate();
+			if (rowsAffected > 0) {
+				success = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(null, stmt);
+		}
+		return success;
+	}
 	public boolean addDonVi(DonVi donVi) {
 		Connection con = connectDBs.getConnConnection();
 		PreparedStatement stmt = null;
 		boolean success = false;
 		try {
-			stmt = con.prepareStatement("INSERT INTO DonVi (maDonVi, tenDonVi) VALUE (?, ?)");
+			stmt = con.prepareStatement("INSERT INTO DonVi (maDonVi, tenDonVi) VALUES (?, ?)");
 			stmt.setString(1, donVi.getMaDonVi());
 			stmt.setString(2, donVi.getTenDonVi());
 			int rowsAffected = stmt.executeUpdate();
@@ -429,7 +467,7 @@ public class DAO_SanPham {
 		PreparedStatement stmt = null;
 		boolean success = false;
 		try {
-			stmt = con.prepareStatement("INSERT INTO DonVi (maLoai, tenLoai) VALUE (?, ?)");
+			stmt = con.prepareStatement("INSERT INTO DonVi (maLoai, tenLoai) VALUES (?, ?)");
 			stmt.setString(1, loaiSanPham.getMaLoai());
 			stmt.setString(2, loaiSanPham.getTenLoai());
 			int rowsAffected = stmt.executeUpdate();

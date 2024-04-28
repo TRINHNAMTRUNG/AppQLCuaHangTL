@@ -93,9 +93,9 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 	private JLabel lblVND;
 	private JLabel lblAnhSP;
 	private JLabel lblSoLuong;
-	private RoundButton btnChonFile;
-	private RoundButton btnXoa;
-	private RoundButton btnSua;
+	private CustomBtn btnChonFile;
+	private CustomBtn btnXoa;
+	private CustomBtn btnSua;
 	private CustomBtn btnThem;
 	private JScrollPane scrollTableSanPham;
 	private DefaultTableModel modelTable;
@@ -121,8 +121,8 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 	private ImageIcon myImage;
 	private File f;
 	private String p;
-	private RoundButton btnLuu;
-	private RoundButton btnHuy;
+	private CustomBtn btnLuu;
+	private CustomBtn btnHuy;
 	private Object choosebtn;
 	
 	
@@ -131,19 +131,20 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 		setLayout(null);
 
 		pTimKiem = new JPanel();
-		pTimKiem.setBackground(new Color(119, 165, 187));
+		pTimKiem.setBackground(new Color(220, 239, 218));
 		pTimKiem.setBorder(new LineBorder(new Color(0, 0, 0)));
 		pTimKiem.setBounds(0, 0, 273, 310);
 		add(pTimKiem);
 		pTimKiem.setLayout(null);
 
 		pT1 = new JPanel();
-		pT1.setBackground(new Color(11, 102, 106));
+		pT1.setForeground(new Color(0, 0, 0));
+		pT1.setBackground(new Color(123, 174, 94));
 		pT1.setBounds(0, 0, 273, 29);
 		pTimKiem.add(pT1);
 
 		lblTitleTimKiemSP = new JLabel("Tìm Kiếm");
-		lblTitleTimKiemSP.setForeground(new Color(197, 224, 231));
+		lblTitleTimKiemSP.setForeground(new Color(0, 0, 0));
 		lblTitleTimKiemSP.setFont(new Font("Times New Roman", Font.BOLD, 17));
 		pT1.add(lblTitleTimKiemSP);
 
@@ -183,14 +184,16 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 		pTimKiem.add(comboLoaiTimKiem);
 
 		btnTimKiem = new RoundButton("Tìm", 10);
-		btnTimKiem.setBackground(new Color(53, 94, 241));
+		btnTimKiem.setForeground(new Color(255, 255, 255));
+		btnTimKiem.setBackground(new Color(43, 149, 255));
 		btnTimKiem.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnTimKiem.setBounds(162, 268, 101, 31);
 		btnTimKiem.setFocusPainted(false);
 		pTimKiem.add(btnTimKiem);
 
 		btnLamMoiTimKiem = new RoundButton("Làm mới", 10);
-		btnLamMoiTimKiem.setBackground(new Color(53, 94, 241));
+		btnLamMoiTimKiem.setForeground(new Color(255, 255, 255));
+		btnLamMoiTimKiem.setBackground(new Color(43, 149, 255));
 		btnLamMoiTimKiem.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnLamMoiTimKiem.setBounds(10, 268, 101, 31);
 		btnLamMoiTimKiem.setFocusPainted(false);
@@ -222,19 +225,19 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 		pTimKiem.add(txtGiaDen);
 
 		pThongTinSanPham = new JPanel();
-		pThongTinSanPham.setBackground(new Color(119, 165, 187));
+		pThongTinSanPham.setBackground(new Color(220, 239, 218));
 		pThongTinSanPham.setBorder(new LineBorder(new Color(0, 0, 0)));
 		pThongTinSanPham.setBounds(283, 0, 630, 310);
 		add(pThongTinSanPham);
 		pThongTinSanPham.setLayout(null);
 
 		pT2 = new JPanel();
-		pT2.setBackground(new Color(11, 102, 106));
+		pT2.setBackground(new Color(123, 174, 94));
 		pT2.setBounds(0, 0, 630, 31);
 		pThongTinSanPham.add(pT2);
 
 		lblTitleThongTinSP = new JLabel("Thông Tin Sản Phẩm");
-		lblTitleThongTinSP.setForeground(new Color(197, 224, 231));
+		lblTitleThongTinSP.setForeground(new Color(0, 0, 0));
 		lblTitleThongTinSP.setFont(new Font("Times New Roman", Font.BOLD, 17));
 		pT2.add(lblTitleThongTinSP);
 
@@ -313,27 +316,29 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 		lblSoLuong.setBounds(421, 141, 54, 29);
 		pThongTinSanPham.add(lblSoLuong);
 
-		btnChonFile = new RoundButton("Chọn File", 5);
+		btnChonFile = new CustomBtn("Chọn file", null, 15, 0, 1);
+		btnChonFile.setForeground(new Color(255, 255, 255));
 		btnChonFile.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnChonFile.setBounds(20, 193, 89, 23);
 		pThongTinSanPham.add(btnChonFile);
-		btnChonFile.setBackground(new Color(53, 94, 241));
+		btnChonFile.setBackground(new Color(43, 149, 255));
 		btnChonFile.setBorder(null);
 		btnChonFile.setFocusPainted(false);
 
-		btnXoa = new RoundButton("Xóa", 5);
+		btnXoa = new CustomBtn("Xóa", null, 15, 0, 1);
+		btnXoa.setForeground(new Color(255, 255, 255));
 		btnXoa.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnXoa.setBounds(127, 268, 90, 31);
 		pThongTinSanPham.add(btnXoa);
-		btnXoa.setBackground(new Color(53, 94, 241));
+		btnXoa.setBackground(new Color(43, 149, 255));
 		btnXoa.setFocusPainted(false);
 
-		btnSua = new RoundButton("Sửa", 5);
-		btnSua.setForeground(new Color(0, 0, 0));
+		btnSua = new CustomBtn("Sửa", null, 15, 0, 1);
+		btnSua.setForeground(new Color(255, 255, 255));
 		btnSua.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnSua.setBounds(232, 268, 90, 31);
 		pThongTinSanPham.add(btnSua);
-		btnSua.setBackground(new Color(53,94,241));
+		btnSua.setBackground(new Color(43, 149, 255));
 		btnSua.setFocusPainted(false);
 
 		btnThem = new CustomBtn("Thêm", null, 15, 0, 1);
@@ -342,7 +347,7 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 		btnThem.setFont(new Font("Segoe UI Semibold", Font.BOLD, 14));
 		btnThem.setBounds(20, 268, 90, 31);
 		pThongTinSanPham.add(btnThem);
-		btnThem.setBackground(new Color(53, 94, 241));
+		btnThem.setBackground(new Color(43, 149, 255));
 		btnThem.setBorder(null);
 		btnThem.setFocusPainted(false);
 
@@ -376,21 +381,21 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 		comboNCC.setBounds(195, 185, 425, 23);
 		pThongTinSanPham.add(comboNCC);
 
-		btnLuu = new RoundButton("Sửa", 5);
+		btnLuu = new CustomBtn("Lưu", null, 15, 0, 1);
 		btnLuu.setText("Lưu");
 		btnLuu.setForeground(Color.BLACK);
 		btnLuu.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnLuu.setFocusPainted(false);
-		btnLuu.setBackground(new Color(53, 94, 241));
+		btnLuu.setBackground(new Color(43, 149, 255));
 		btnLuu.setBounds(431, 268, 60, 31);
 		pThongTinSanPham.add(btnLuu);
 
-		btnHuy = new RoundButton("Sửa", 5);
+		btnHuy = new CustomBtn("Hủy", null, 15, 0, 1);
 		btnHuy.setText("Hủy");
 		btnHuy.setForeground(Color.BLACK);
 		btnHuy.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnHuy.setFocusPainted(false);
-		btnHuy.setBackground(new Color(53, 94, 241));
+		btnHuy.setBackground(new Color(43, 149, 255));
 		btnHuy.setBounds(548, 268, 60, 31);
 		pThongTinSanPham.add(btnHuy);
 
@@ -479,26 +484,46 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 			if(choosebtn.equals(btnSua)) {
 				updateSanPham();
 			}
-			if(choosebtn.equals(btnXoa)) {
-
-			}
-			//			KhoaBangThongTin(true);
-			khoabtn(false);
+			
 		}
 		if(obj.equals(btnHuy)) {
-
-			//			KhoaBangThongTin(true);
 			khoabtn(false);
 		}
 		if(obj.equals(btnTimKiem)) {
 			timKiemDieuKiem();
 		}
 		if(obj.equals(btnXoa)) {
-			lamMoiThongTin();
-			//			KhoaBangThongTin(false);
-			txtMaSP.requestFocus();
-			choosebtn = obj;
-			khoabtn(true);
+			int selectRow = tableSanPham.getSelectedRow();
+			if(selectRow!=-1) {
+				if(valid()) {
+					SanPham sp = layThongTin();
+					String maGia = taoMaGiaSanPham(sp.getMaSanPham(), sp.getGiaSanPham().getDonVi().getMaDonVi());
+					sp.getGiaSanPham().setMaGiaSanPham(maGia);
+					boolean kiemTraTonTaiGia= kiemTraTonTaiGia(sp);
+					int num=0;
+					for (SanPham sanPham : listSanPham) {
+						if(sp.getMaSanPham().equals(sanPham.getMaSanPham())) {
+							num ++;
+						}
+					}
+					if(kiemTraTonTaiGia) {
+						int choice = JOptionPane.showOptionDialog(null, "Bạn có muốn xóa sản phẩm này?", "Xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+						if(choice== JOptionPane.YES_OPTION) {
+							if(num==1) {
+								busSanPham.deleteSanPhamCuoi(sp);
+								JOptionPane.showMessageDialog(this, "Xóa thành công!");
+								modelTable.removeRow(selectRow);
+							}else {
+								busSanPham.deleteSanPham(sp);
+								JOptionPane.showMessageDialog(this, "Xóa thành công!");
+								modelTable.removeRow(selectRow);
+							}
+						}
+					}
+				}
+			}else {
+				JOptionPane.showMessageDialog(this, "Chọn sản phẩm cần xóa!");
+			}
 		}
 		if(obj.equals(btnChonFile)) {
 			file = new JFileChooser();
@@ -604,7 +629,9 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 		NhaCungCap nhaCungCap = (NhaCungCap) comboNCC.getSelectedItem();
 		LoaiSanPham loaiSanPham = (LoaiSanPham) comboLoai.getSelectedItem();
 		String anhSanPham = (String) lblAnhSP.getClientProperty("imageName");
-
+		if(anhSanPham == null) {
+			anhSanPham = "noproductimage.png";
+		}
 		DonVi donVi = (DonVi) comboDonVi.getSelectedItem();
 		int soLuong = Integer.parseInt(txtSoLuong.getText());
 		double giaBan = 0, giaVon = 0;
@@ -649,14 +676,6 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 			maGia += arrMaSP[i];
 		}
 		maGia += maDonVi;
-//		do {
-//			String newMaGia = maGia.trim() + String.format("%03d", random.nextInt(1000));
-//			isDuplicate = listSanPham.stream().anyMatch(p -> p.getMaSanPham().equals(newMaGia));
-//			if (!isDuplicate) {
-//				maGia = newMaGia;
-//			}
-//		} while (isDuplicate);
-
 		return maGia.trim();
 	}
 	public void themSanPham() {
@@ -684,11 +703,7 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 					if(!txtGiaBan.getText().matches("^\\d{1,3}(,\\d{3})*$")) {
 						String giabanF = pattern.format(Double.parseDouble(txtGiaBan.getText()));
 						txtGiaBan.setText(giabanF);
-						//						tableSanPham.setValueAt(txtGiaBan.getText(), selectedRow, 3);
 					}
-					//					else {
-					//						tableSanPham.setValueAt(txtGiaBan.getText(), selectedRow, 3);
-					//					}
 					if(!txtGiaVon.getText().matches("^\\d{1,3}(,\\d{3})*$")) {
 						String giaVonF = pattern.format(Double.parseDouble(txtGiaVon.getText()));
 						txtGiaVon.setText(giaVonF);
@@ -696,6 +711,7 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 					Object[] newRow = {sanPham.getMaSanPham(),sanPham.getGiaSanPham().getMaGiaSanPham(), sanPham.getTenSanPham(),pattern.format(sanPham.getGiaSanPham().getDonGia()), sanPham.getGiaSanPham().getDonVi().getTenDonVi(), sanPham.getGiaSanPham().getSoLuong(), sanPham.getNhaCungCap().getTenNhaCungCap(), sanPham.getLoaiSanPham().getTenLoai()};
 					modelTable.addRow(newRow);
 					listSanPham.add(sanPham);
+					khoabtn(false);
 				}else {
 					JOptionPane.showMessageDialog(this, "Thêm thất bại!");
 				}
@@ -741,6 +757,7 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 				tableSanPham.setValueAt(sanPham.getLoaiSanPham().getTenLoai(), selectedRow, 7);
 				OptionalInt index = IntStream.range(0, listSanPham.size()) .filter(i -> listSanPham.get(i).getGiaSanPham().getMaGiaSanPham().equals(maGiaSanPham)).findFirst();
 				listSanPham.set(index.getAsInt(), sanPham);
+				khoabtn(false);
 			}else {
 				JOptionPane.showMessageDialog(this, "Update thất bại!");
 			}
@@ -755,12 +772,13 @@ public class GUI_SanPham extends JPanel implements ActionListener, MouseListener
 				txtTenSP.setText(sanPham.getTenSanPham());
 				txtGiaBan.setText(pattern.format(sanPham.getGiaSanPham().getDonGia()));
 				NhaCungCap nhaCungCap = sanPham.getNhaCungCap();
-				comboNCC.setSelectedItem(nhaCungCap);
+				modelComboNCC.setSelectedItem(nhaCungCap);
 				txtGiaVon.setText(pattern.format(sanPham.getGiaSanPham().getGiaVon()));
 				LoaiSanPham loaiSanPham = sanPham.getLoaiSanPham();
-				comboLoai.setSelectedItem(loaiSanPham);
+				modelComBoLoaiTimKiem.setSelectedItem(loaiSanPham);
 				DonVi donVi = sanPham.getGiaSanPham().getDonVi();
-				comboDonVi.setSelectedItem(donVi);
+				System.out.println("Day la don vi"+donVi);
+				modelComboDonVi.setSelectedItem(donVi);
 				txtSoLuong.setText(String.valueOf(sanPham.getGiaSanPham().getSoLuong()));
 				if(sanPham.getGiaSanPham().isTrangThai()) {
 					lblKQTinhTrang.setText("Còn hàng");
